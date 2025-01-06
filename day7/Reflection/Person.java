@@ -1,9 +1,9 @@
 package Day7;
 
 public class Person {
-    String name;
-    int age;
-    int sal;
+    public String name;
+    public int age;
+    public int sal;
     public Person(){
 
     }
