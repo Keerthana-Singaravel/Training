@@ -112,19 +112,20 @@ class StudentManage {
         }
     }
 
-    private void loadFromFile() {
+    public void loadFromFile() {
+      new Thread(() -> {
         try (BufferedReader reader = new BufferedReader(new FileReader(File_Name))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-                if (data.length == 5) {  // Check if the line has all required fields
+                if (data.length == 5) {  
                     s.add(new Student(Integer.parseInt(data[0]), data[1], Integer.parseInt(data[2]), data[3], data[4]));
                 }
             }
         } catch (IOException e) {
             s = new ArrayList<>();
         }
-
+      }).start();
     }
 }
 public class StudentDatabase {
